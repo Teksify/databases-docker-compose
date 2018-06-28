@@ -1,0 +1,31 @@
+version: '2'
+services:
+  mysqldb:
+    image: bitnami/mysql:5.7
+    container_name: mysql
+    ports:
+      - '33061:3306'
+    environment:
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=Admin12!@
+    volumes:
+      - /etc/datafinderdbs/mysql:/bitnami
+  mssqldb:
+    image: microsoft/mssql-server-linux:2017-CU7
+    container_name: mssql
+    ports:
+      - '1433:1433'
+    environment:
+      - SA_PASSWORD=Admin12!@
+      - ACCEPT_EULA=Y
+  oracle:
+      image: sath89/oracle-12c:r1
+      container_name: oracle
+      ports:
+        - '1521:1521'
+        - '8105:8080'
+      environment:
+        - SA_PASSWORD=Admin12!@
+        - ACCEPT_EULA=Y
+
+
